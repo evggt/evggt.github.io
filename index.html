@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Action Tokenizer Matters in In-Context Imitation Learning">
-  <meta name="keywords" content="in-context learning, imitation learning, action tokenizer, robotics">
+        content="Improving Robotic Manipulation with Efficient Geometry-Aware Vision Encoder">
+  <meta name="keywords" content="imitation learning, geometry-aware, visual geometry, robotics">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:image" content="./static/images/action-tokenizer.png"/>
   <link rel="image_src" href="./static/images/action-tokenizer.png">
@@ -12,7 +12,7 @@
         type="image/x-icon"
         href="./static/images/action-tokenizer.ico"/>
 
-  <title>Action Tokenizer Matters in In-Context Imitation Learning</title>
+  <title>Improving Robotic Manipulation with Efficient Geometry-Aware Vision Encoder</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EDF010G6PN"></script>
@@ -70,9 +70,9 @@
         Action Tokenizer Matters in In-Context Imitation Learning
       </h1>
 
-      <div class="column is-full_width">
+<!--       <div class="column is-full_width">
         <h2 class="title is-4">IROS 2025</h2>
-      </div>
+      </div> -->
 
       <div class="is-size-5 publication-authors">
         <span class="author-block">
@@ -80,9 +80,6 @@
         </span>&nbsp;&nbsp;&nbsp;
         <span class="author-block">
           <a href="https://scholar.google.com/citations?hl=th&user=qyExc4QAAAAJ">Minh Nhat Vu</a><sup>2</sup>
-        </span>&nbsp;&nbsp;&nbsp;
-        <span class="author-block">
-          <a href="https://marsaki.github.io/">Dong An</a><sup>1</sup>
         </span>&nbsp;&nbsp;&nbsp;
         <span class="author-block">
           <a href="https://www.adelaide.edu.au/directory/ian.reid">Ian Reid</a><sup>1</sup>
@@ -114,12 +111,12 @@
             </a>
           </span>
           <span class="link-block">
-              <a href="https://github.com/andvg3/LipVQ-VAE"
+              <a href=""
                  class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                     <i class="fab fa-github"></i>
                 </span>
-                <span>Code</span>
+                <span>Code (Coming soon)</span>
                 </a>
             </span>
         </div>
@@ -135,7 +132,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            In-context imitation learning (ICIL) is a new paradigm that enables robots to generalize from demonstrations to unseen tasks without retraining. A well-structured action representation is the key to capturing demonstration information effectively, yet action tokenizer (the process of discretizing and encoding actions) remains largely unexplored in ICIL. In this work, we first systematically evaluate existing action tokenizer methods in ICIL and reveal a critical limitation: while they effectively encode action trajectories, they fail to preserve temporal smoothness, which is crucial for stable robotic execution. To address this, we propose LipVQ-VAE, a variational autoencoder that enforces the Lipschitz condition in the latent action space via weight normalization. By propagating smoothness constraints from raw action inputs to a quantized latent codebook, LipVQ-VAE generates more stable and smoother actions. When integrating into ICIL, LipVQ-VAE improves performance by more than 5.3% in high-fidelity simulators, with real-world experiments confirming its ability to produce smoother, more reliable trajectories.
+          Existing RGB-based imitation learning approaches typically employ traditional vision encoders such as ResNet or ViT, which lack explicit 3D reasoning capabilities. Recent geometry-grounded vision models, such as VGGT~\cite{wang2025vggt}, provide robust spatial understanding and are promising candidates to address this limitation. This work investigates the integration of geometry-aware visual representations into robotic manipulation. Our results suggest that incorporating the geometry-aware vision encoder into imitation learning frameworks, including ACT and DP, yields up to 6.5% improvement over standard vision encoders in success rate across single- and bi-manual manipulation tasks in both simulation and real-world settings. Despite these benefits, most geometry-grounded models require high computational cost, limiting their deployment in practical robotic systems. To address this challenge, we propose eVGGT, an efficient geometry-aware encoder distilled from VGGT. eVGGT is nearly 9 times faster and 5 times smaller than VGGT, while preserving strong 3D reasoning capabilities. 
           </p>
         </div>
       </div>
@@ -144,12 +141,12 @@
     <!-- Teaser video -->
     <div class="columns is-centered has-text-centered" style="margin-top: 2rem;">
       <div class="column is-four-fifths">
-        <video autoplay muted loop controls playsinline style="width: 100%; border-radius: 12px;">
+<!--         <video autoplay muted loop controls playsinline style="width: 100%; border-radius: 12px;">
           <source src="./static/Teaser.mp4" type="video/mp4">
           Your browser does not support the video tag.
-        </video>
+        </video> -->
         <p class="has-text-centered" style="margin-top: 1rem;">
-          <i>Smooth, stable trajectories from LipVQ-VAE in high-fidelity simulators.</i>
+          <i>We present efficient geometry-aware vision encoder for improving robotic manipulation.</i>
         </p>
       </div>
     </div>
@@ -160,12 +157,12 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Smoothness vs. Success</h2>
+        <h2 class="title is-3">Non-geometry-aware vs. Geometry-aware</h2>
         <div class="content has-text-justified">
           <p>
-            We examine the impact of the action tokenizer on in-context imitation learning. Our findings indicate that a smoother representation of action correlates with higher robotic manipulation success. 
+            This paper explores the replacement of conventional 2D vision encoders in robotic manipulation with the geometry-based encoder to more effectively capture the 3D global context.
             <br><br>
-            As shown in the figure below, a lower smoothness score reflects a smoother action representation — which in turn translates to better task performance across benchmarks.
+            As shown in the figure below, incorporating our geometry-aware vision encoder can improve performance by up to 6.5%.
           </p>
         </div>
       </div>
@@ -175,7 +172,7 @@
       <div class="column is-three-fourths">
         <img src="./static/images/Teaser.jpg" alt="Smoothness vs. Success" style="width: 80%; border-radius: 12px;" />
         <p class="has-text-centered" style="margin-top: 1rem;">
-          <i>Figure: Relationship between smoothness of the action representation and robotic success rate.</i>
+          <i>Figure: Relationship between the leveraging of geometry-aware representations and robotic success rate.</i>
         </p>
       </div>
     </div>
@@ -186,14 +183,12 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">LipVQ-VAE Action Tokenizer</h2>
+        <h2 class="title is-3"><strong>e</strong>fficient <strong>VGGT</strong></h2>
         <div class="content has-text-justified">
           <p>
-            <strong>LipVQ-VAE</strong> is our proposed action tokenizer, designed to address temporal smoothness in in-context imitation learning.
-            We adopt an autoencoder framework that maps continuous robot actions to a latent space using a quantized codebook lookup.
+            <strong>eVGGT</strong> is our proposed geometry,r, designed to facilitate the transfer of knowledge from geometry-aware networks. It is a lightweight variant that is 5× smaller and 9× faster, while still maintaining robust geometric reasoning capabilities.
             <br><br>
-            To ensure a smooth latent representation, we apply <em>Lipschitz regularization</em> by row-wise normalizing the weight matrix after each encoder layer.
-            This enforces stability and continuity in the latent space, which translates to smoother decoded actions during execution.
+            We apply knowledge distillation to train a compressed eVGGT from a VGGT, using the same architecture but with a reduced number of transformer blocks (from 24 to 4) and substituting DINO-ViT-S for DINO-ViT-L.
           </p>
         </div>
       </div>
@@ -203,7 +198,7 @@
       <div class="column is-four-fifths">
         <img src="./static/images/LipVQ-VAE.png" alt="LipVQ-VAE architecture" style="width: 60%; border-radius: 12px;" />
         <p class="has-text-centered" style="margin-top: 1rem;">
-          <i>Figure: LipVQ-VAE architecture with Lipschitz-regularized encoder and codebook lookup.</i>
+          <i>Figure: Efficiency comparison of eVGGT and VGGT.</i>
         </p>
       </div>
     </div>
@@ -222,3 +217,4 @@
 
 </body>
 </html>
+

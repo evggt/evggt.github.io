@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Action Tokenizer Matters in In-Context Imitation Learning">
+  <meta name="keywords" content="in-context learning, imitation learning, action tokenizer, robotics">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:image" content="./static/images/action-tokenizer.png"/>
+  <link rel="image_src" href="./static/images/action-tokenizer.png">
+  <link rel="icon"
+        type="image/x-icon"
+        href="./static/images/action-tokenizer.ico"/>
+
+  <title>Action Tokenizer Matters in In-Context Imitation Learning</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EDF010G6PN"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDF010G6PN');
+
+
+  </script>
+
+  <script type="module"
+          src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="./static/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="./static/slick/slick-theme.css"/>
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title is-1 publication-title">
+        Action Tokenizer Matters in In-Context Imitation Learning
+      </h1>
+
+      <div class="column is-full_width">
+        <h2 class="title is-4">IROS 2025</h2>
+      </div>
+
+      <div class="is-size-5 publication-authors">
+        <span class="author-block">
+          <a href="https://scholar.google.com/citations?user=CUpnG-YAAAAJ&hl=en">An Dinh Vuong</a><sup>1</sup>
+        </span>&nbsp;&nbsp;&nbsp;
+        <span class="author-block">
+          <a href="https://scholar.google.com/citations?hl=th&user=qyExc4QAAAAJ">Minh Nhat Vu</a><sup>2</sup>
+        </span>&nbsp;&nbsp;&nbsp;
+        <span class="author-block">
+          <a href="https://marsaki.github.io/">Dong An</a><sup>1</sup>
+        </span>&nbsp;&nbsp;&nbsp;
+        <span class="author-block">
+          <a href="https://www.adelaide.edu.au/directory/ian.reid">Ian Reid</a><sup>1</sup>
+        </span>
+      </div>
+
+      <br>
+      <div class="is-size-5 publication-authors">
+        <span class="author-block"><sup>1</sup>MBZUAI</span>&nbsp;&nbsp;
+        <span class="author-block"><sup>2</sup>TU Wien</span>
+      </div>
+
+      <div class="column has-text-centered">
+        <div class="publication-links">
+          <span class="link-block">
+                <a href="https://arxiv.org/abs/2503.01206" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+          <span class="link-block">
+            <a href="https://arxiv.org/abs/2503.01206" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                <i class="ai ai-arxiv"></i>
+              </span>
+              <span>arXiv</span>
+            </a>
+          </span>
+          <span class="link-block">
+              <a href="https://github.com/andvg3/LipVQ-VAE"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+                </a>
+            </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In-context imitation learning (ICIL) is a new paradigm that enables robots to generalize from demonstrations to unseen tasks without retraining. A well-structured action representation is the key to capturing demonstration information effectively, yet action tokenizer (the process of discretizing and encoding actions) remains largely unexplored in ICIL. In this work, we first systematically evaluate existing action tokenizer methods in ICIL and reveal a critical limitation: while they effectively encode action trajectories, they fail to preserve temporal smoothness, which is crucial for stable robotic execution. To address this, we propose LipVQ-VAE, a variational autoencoder that enforces the Lipschitz condition in the latent action space via weight normalization. By propagating smoothness constraints from raw action inputs to a quantized latent codebook, LipVQ-VAE generates more stable and smoother actions. When integrating into ICIL, LipVQ-VAE improves performance by more than 5.3% in high-fidelity simulators, with real-world experiments confirming its ability to produce smoother, more reliable trajectories.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Teaser video -->
+    <div class="columns is-centered has-text-centered" style="margin-top: 2rem;">
+      <div class="column is-four-fifths">
+        <video autoplay muted loop controls playsinline style="width: 100%; border-radius: 12px;">
+          <source src="./static/Teaser.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="has-text-centered" style="margin-top: 1rem;">
+          <i>Smooth, stable trajectories from LipVQ-VAE in high-fidelity simulators.</i>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Smoothness vs. Success</h2>
+        <div class="content has-text-justified">
+          <p>
+            We examine the impact of the action tokenizer on in-context imitation learning. Our findings indicate that a smoother representation of action correlates with higher robotic manipulation success. 
+            <br><br>
+            As shown in the figure below, a lower smoothness score reflects a smoother action representation — which in turn translates to better task performance across benchmarks.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered" style="margin-top: 2rem;">
+      <div class="column is-three-fourths">
+        <img src="./static/images/Teaser.jpg" alt="Smoothness vs. Success" style="width: 80%; border-radius: 12px;" />
+        <p class="has-text-centered" style="margin-top: 1rem;">
+          <i>Figure: Relationship between smoothness of the action representation and robotic success rate.</i>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">LipVQ-VAE Action Tokenizer</h2>
+        <div class="content has-text-justified">
+          <p>
+            <strong>LipVQ-VAE</strong> is our proposed action tokenizer, designed to address temporal smoothness in in-context imitation learning.
+            We adopt an autoencoder framework that maps continuous robot actions to a latent space using a quantized codebook lookup.
+            <br><br>
+            To ensure a smooth latent representation, we apply <em>Lipschitz regularization</em> by row-wise normalizing the weight matrix after each encoder layer.
+            This enforces stability and continuity in the latent space, which translates to smoother decoded actions during execution.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered" style="margin-top: 2rem;">
+      <div class="column is-four-fifths">
+        <img src="./static/images/LipVQ-VAE.png" alt="LipVQ-VAE architecture" style="width: 60%; border-radius: 12px;" />
+        <p class="has-text-centered" style="margin-top: 1rem;">
+          <i>Figure: LipVQ-VAE architecture with Lipschitz-regularized encoder and codebook lookup.</i>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="acknowledgements">
+  <div class="container content is-max-desktop">
+    <h2 class="title">Acknowledgements</h2>
+    <p>
+      This website template is adapted from <a href="https://hypernerf.github.io/">HyperNeRF</a>.
+    </p>
+  </div>
+</section>
+
+</body>
+</html>
